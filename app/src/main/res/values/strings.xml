@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Automotora</string>
+    <string name="imagen_principal">Imagen Principal</string>
+    <string name="ingrese_el_nombre">Ingrese el Nombre</string>
+    <string name="ingrese_el_origen">Ingrese el Origen</string>
+    <string name="ingresar">Ingresar</string>
+</resources>
