@@ -1,7 +1,6 @@
 package Class;
 
 import java.util.ArrayList;
-
 /**
  * Created by Maxi on 28/07/2016.
  */
@@ -25,7 +24,11 @@ public class Automotora {
         LasMarcas = lasMarcas;
     }
     public boolean AgregarMarca(Marca pMarca){
+        //MarcaPERS Persistencia = new MarcaPERS(this);
+        //boolean existe = Persistencia.existeMarca("ss");
+        //if(!existe)
         try{
+
             LasMarcas.add(pMarca);
             return true;
         }catch (Exception e){
