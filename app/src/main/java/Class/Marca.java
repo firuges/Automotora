@@ -6,6 +6,7 @@ import java.io.Serializable;
  * Created by Maxi on 28/07/2016.
  */
 public class Marca implements Serializable{
+    private int _id;
     private String _nombre;
     private String _origen;
 
@@ -34,5 +35,13 @@ public class Marca implements Serializable{
     @Override
     public String toString() {
         return _nombre + " Origen: "+ _origen;
+    }
+
+    public int get_id() {
+        return _id;
+    }
+
+    public void set_id(int _id) {
+        this._id = _id;
     }
 }
