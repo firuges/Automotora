@@ -1,12 +1,15 @@
 package Class;
 
+import android.content.Context;
+
+import java.io.IOException;
 import java.util.ArrayList;
 /**
  * Created by Maxi on 28/07/2016.
  */
+
 public class Automotora {
     private static ArrayList<Auto> LosAutos = new ArrayList<>();
-    private static ArrayList<Marca> LasMarcas = new ArrayList<>();
 
     public static ArrayList<Auto> getLosAutos() {
         return LosAutos;
@@ -15,26 +18,23 @@ public class Automotora {
     public static void setLosAutos(ArrayList<Auto> losAutos) {
         LosAutos = losAutos;
     }
+    public boolean AgregarMarca(Context elContexto, Marca pMarca) throws IOException {
+        MarcaPERS Persistencia = new MarcaPERS(elContexto);
+        boolean existe = Persistencia.existeMarca(pMarca.get_nombre());
+        if(!existe){
+            try{
+                Persistencia.guardarMarca(pMarca);
+                return true;
+            }catch (Exception e){
+                throw e;
 
-    public static ArrayList<Marca> getLasMarcas() {
-        return LasMarcas;
-    }
-
-    public static void setLasMarcas(ArrayList<Marca> lasMarcas) {
-        LasMarcas = lasMarcas;
-    }
-    public boolean AgregarMarca(Marca pMarca){
-        //MarcaPERS Persistencia = new MarcaPERS(this);
-        //boolean existe = Persistencia.existeMarca("ss");
-        //if(!existe)
-        try{
-
-            LasMarcas.add(pMarca);
-            return true;
-        }catch (Exception e){
-            throw e;
-
+            }
         }
+        else
+        {
+            return false;
+        }
+
     }
     public boolean AgregarAuto(Auto pAuto){
         try{
@@ -44,5 +44,11 @@ public class Automotora {
             throw e;
 
         }
+    }
+    public ArrayList<Marca> TraerMarcas(Context elContexto) throws IOException {
+        ArrayList<Marca> retornoMarcas = new ArrayList<>();
+        MarcaPERS Persistencia = new MarcaPERS(elContexto);
+        retornoMarcas = Persistencia.lasMarcas();
+        return retornoMarcas;
     }
 }

@@ -11,7 +11,7 @@ public class MarcaPERS extends SQLite {
     public MarcaPERS(Context contexto) {
         super(contexto);
     }
-    public void guardar(Marca m) throws IOException {
+    public void guardarMarca(Marca m) throws IOException {
         this.ejecutarSentencia("INSERT INTO marca (mNombre, mOrigen) " +
                 "VALUES ('" + m.get_nombre() + "', '" + m.get_origen() + "')");
     }
