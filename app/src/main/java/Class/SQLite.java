@@ -19,9 +19,8 @@ public class SQLite extends SQLiteOpenHelper {
     //region PRIVADOS
     //Ruta a la localizacion de la BDD
     private static String BDD_RUTA = "/data/data/com.example.tallerandroid.automotora/databases/";
-    //C:\Users\Maxi\Documents\ProgramasTaller\Automotora_mia
     //Nombre de la BDD para asceder a la misma
-    private static String BDD_NOMBRE = "automotora";
+    private static String BDD_NOMBRE = "automotora.db";
     private SQLiteDatabase miBdd;
     private final Context miContexto;
 

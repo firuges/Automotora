@@ -12,13 +12,13 @@ public class MarcaPERS extends SQLite {
         super(contexto);
     }
     public void guardarMarca(Marca m) throws IOException {
-        this.ejecutarSentencia("INSERT INTO marca (mNombre, mOrigen) " +
+        this.ejecutarSentencia("INSERT INTO Marcas (mNombre, mOrigen) " +
                 "VALUES ('" + m.get_nombre() + "', '" + m.get_origen() + "')");
     }
     public boolean existeMarca(String nombre) throws IOException {
         boolean existe = false;
         //Lo retornado  se asigna al cursor que se encuentra en SQLite
-        this.seleccionar("SELECT *  FROM marca " +
+        this.seleccionar("SELECT *  FROM Marcas " +
                 "WHERE mNombre = '" + nombre + "'");
         while (this.c.isAfterLast() == false){
             existe = true;
@@ -31,7 +31,7 @@ public class MarcaPERS extends SQLite {
         ArrayList<Marca> lasMarcasGuardadas = new ArrayList<>();
         Marca marca;
         //Lo retornado  se asigna al cursor que se encuentra en SQLite
-        this.seleccionar("SELECT *  FROM marca ORDER BY mNombre");
+        this.seleccionar("SELECT *  FROM Marcas ORDER BY mNombre");
         //Recorremos el cursor y agregamos cada elemento  a un arraylist
         while (c.isAfterLast() == false){
             marca = new Marca();
